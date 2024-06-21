@@ -1,23 +1,23 @@
-# Mini App Sample Project
+# Mini App Example Project
 
 ## Getting Started
 
-This project is a Mini App sample project based on [Next.js](https://nextjs.org/) and styled with [Tailwind CSS](https://tailwindcss.com/).
+This project is a Mini App Example project based on [Next.js](https://nextjs.org/) and styled with [Tailwind CSS](https://tailwindcss.com/).
 
 ### Prerequisites
 
-Before running the Mini App sample, make sure you have the following software installed:
+Before running the Mini App Example, make sure you have the following software installed:
 
 - [Node.js](https://nodejs.org/)
 - Choose one of the following package managers: [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/), [pnpm](https://pnpm.io/), or [bun](https://bun.sh/)
 
 ### Setting Up the Development Environment
 
-1. **Clone the Sample Repository**
+1. **Clone the example Repository**
 
    ```bash
    git clone https://github.com/paotang-miniapp/miniapp-example
-   cd miniapp-sample-repo
+   cd miniapp-example
    ```
 
 2. **Install Dependencies**
@@ -32,7 +32,7 @@ Before running the Mini App sample, make sure you have the following software in
    bun install
    ```
 
-3. **Run the Mini App Sample**
+3. **Run the Mini App Example**
 
    ```bash
    npm run dev
@@ -54,7 +54,7 @@ During development, if you need to debug your application within the Mini App we
 
 #### Step-by-Step Guide
 
-1. **Run the Mini App Sample**
+1. **Run the Mini App Example**
 
    Start the development server:
 
@@ -166,7 +166,7 @@ initAuth(
 );
 ```
 
-In this sample project, we demonstrate how to use `initAuth` for user authentication before accessing the app. We have created an `/init` page to handle the various logic for initializing authentication before entering the main app page.
+In this example project, we demonstrate how to use `initAuth` for user authentication before accessing the app. We have created an `/init` page to handle the various logic for initializing authentication before entering the main app page.
 
 Therefore, we need to set the Mini App Redirect URL to `https://<app-domain>/init` so that the Mini App webview opens this page first (which you might implement as a loading screen or splash screen).
 
