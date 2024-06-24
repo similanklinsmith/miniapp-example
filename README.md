@@ -172,4 +172,3 @@ Therefore, we need to set the Mini App Redirect URL to `https://<app-domain>/ini
 
 Once the `initAuth` process is successful, the system will redirect the user to the main page of the application with the `authorizationCode` received from `initAuth`.
 
-For more information on available JSBridge functions and specifications, please refer to the [Mini App JSBridge Documentation](https://ktbinnovation.atlassian.net/wiki/spaces/MA/pages/3498704972/JSBridge+Specifications).
