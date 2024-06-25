@@ -121,7 +121,7 @@ Before using JSBridge functions, you need to set up JSBridge in your Mini App pr
 
 #### Using JSBridge Functions
 
-We have prepared the core functions for calling `initAuth` in the [JSBridge Specifications](https://ktbinnovation.atlassian.net/wiki/spaces/MA/pages/3498704972/JSBridge+Specifications#initAuth). You can use these functions to integrate the JSBridge into your Mini App project.
+Here is an example function for calling initAuth in the JSBridge. It sets up callback functions for success and error handling, then triggers the authentication process via JSBridge for Android or webkit for iOS.
 
 ```typescript
 const initAuth = (
@@ -204,6 +204,4 @@ Deploying your Mini App to Vercel is simple and quick. Just follow these steps:
 
    ![dashboard](./public/instruction/5.png)
 
-By following these steps, you can easily deploy your Mini App to Vercel and make it accessible to users.
-
-For more detailed information on deploying projects to Vercel, visit the [Vercel Documentation](https://vercel.com/docs).
+By following these steps, you can easily deploy your Mini App to Vercel and make it accessible to users. For more detailed information on deploying projects to Vercel, visit the [Vercel Documentation](https://vercel.com/docs).
