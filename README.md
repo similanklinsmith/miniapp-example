@@ -172,3 +172,38 @@ Therefore, we need to set the Mini App Redirect URL to `https://<app-domain>/ini
 
 Once the `initAuth` process is successful, the system will redirect the user to the main page of the application with the `authorizationCode` received from `initAuth`.
 
+### Easy Way to Deploy Your Mini App to Vercel
+
+Deploying your Mini App to Vercel is simple and quick. Just follow these steps:
+
+1. **Login to Vercel**
+   - Visit [Vercel](https://vercel.com/) and log in to your account.
+
+   ![login](./public/instruction/1.png)
+
+2. **Add a New Project**
+   - Click on the "Add New" button.
+   - Then click on the "Project" button to start a new project.
+
+   ![add new](./public/instruction/2.png)
+
+3. **Select Your Repository**
+   - Choose the repository. You can select from GitHub, GitLab, or Bitbucket.
+   - Click on "Import" to proceed.
+
+   ![select repository](./public/instruction/3.png)
+
+4. **Configure Your Project**
+   - Verify and configure your project settings.
+   - Ensure all the settings are correct, then click "Deploy" to initiate the deployment.
+
+   ![config](./public/instruction/4.png)
+
+5. **View Your Deployed Mini App**
+   - After deployment, click on the provided preview URL to view your live Mini App.
+
+   ![dashboard](./public/instruction/5.png)
+
+By following these steps, you can easily deploy your Mini App to Vercel and make it accessible to users.
+
+For more detailed information on deploying projects to Vercel, visit the [Vercel Documentation](https://vercel.com/docs).
