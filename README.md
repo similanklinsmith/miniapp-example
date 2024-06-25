@@ -200,7 +200,7 @@ Deploying your Mini App to Vercel is simple and quick. Just follow these steps:
    ![config](./public/instruction/4.png)
 
 5. **View Your Deployed Mini App**
-   - After deployment, click on the provided preview URL to view your live Mini App.
+   - After deployment, click on the provided "Domains" URL to view your app.
 
    ![dashboard](./public/instruction/5.png)
 
