@@ -179,29 +179,29 @@ Deploying your Mini App to Vercel is simple and quick. Just follow these steps:
 1. **Login to Vercel**
    - Visit [Vercel](https://vercel.com/) and log in to your account.
 
-   ![login](./public/instruction/1.png)
+   ![login](./instruction/deploy-to-vercel/1.png)
 
 2. **Add a New Project**
    - Click on the "Add New" button.
    - Then click on the "Project" button to start a new project.
 
-   ![add new](./public/instruction/2.png)
+   ![add new](./instruction/deploy-to-vercel/2.png)
 
 3. **Select Your Repository**
    - Choose the repository. You can select from GitHub, GitLab, or Bitbucket.
    - Click on "Import" to proceed.
 
-   ![select repository](./public/instruction/3.png)
+   ![select repository](./instruction/deploy-to-vercel/3.png)
 
 4. **Configure Your Project**
    - Verify and configure your project settings.
    - Ensure all the settings are correct, then click "Deploy" to initiate the deployment.
 
-   ![config](./public/instruction/4.png)
+   ![config](./instruction/deploy-to-vercel/4.png)
 
 5. **View Your Deployed Mini App**
    - After deployment, click on the provided "Domains" URL to view your app.
 
-   ![dashboard](./public/instruction/5.png)
+   ![dashboard](./instruction/deploy-to-vercel/5.png)
 
 By following these steps, you can easily deploy your Mini App to Vercel and make it accessible to users. For more detailed information on deploying projects to Vercel, visit the [Vercel Documentation](https://vercel.com/docs).
