@@ -121,7 +121,7 @@ Before using JSBridge functions, you need to set up JSBridge in your Mini App pr
 
 #### Using JSBridge Functions
 
-We have prepared the core functions for calling `initAuth` in the [JSBridge Specifications](https://ktbinnovation.atlassian.net/wiki/spaces/MA/pages/3498704972/JSBridge+Specifications#initAuth). You can use these functions to integrate the JSBridge into your Mini App project.
+Here is an example function for calling initAuth in the JSBridge. It sets up callback functions for success and error handling, then triggers the authentication process via JSBridge for Android or webkit for iOS.
 
 ```typescript
 const initAuth = (
@@ -172,3 +172,36 @@ Therefore, we need to set the Mini App Redirect URL to `https://<app-domain>/ini
 
 Once the `initAuth` process is successful, the system will redirect the user to the main page of the application with the `authorizationCode` received from `initAuth`.
 
+### Easy Way to Deploy Your Mini App to Vercel
+
+Deploying your Mini App to Vercel is simple and quick. Just follow these steps:
+
+1. **Login to Vercel**
+   - Visit [Vercel](https://vercel.com/) and log in to your account.
+
+   ![login](./instruction/deploy-to-vercel/1.png)
+
+2. **Add a New Project**
+   - Click on the "Add New" button.
+   - Then click on the "Project" button to start a new project.
+
+   ![add new](./instruction/deploy-to-vercel/2.png)
+
+3. **Select Your Repository**
+   - Choose the repository. You can select from GitHub, GitLab, or Bitbucket.
+   - Click on "Import" to proceed.
+
+   ![select repository](./instruction/deploy-to-vercel/3.png)
+
+4. **Configure Your Project**
+   - Verify and configure your project settings.
+   - Ensure all the settings are correct, then click "Deploy" to initiate the deployment.
+
+   ![config](./instruction/deploy-to-vercel/4.png)
+
+5. **View Your Deployed Mini App**
+   - After deployment, click on the provided "Domains" URL to view your app.
+
+   ![dashboard](./instruction/deploy-to-vercel/5.png)
+
+By following these steps, you can easily deploy your Mini App to Vercel and make it accessible to users. For more detailed information on deploying projects to Vercel, visit the [Vercel Documentation](https://vercel.com/docs).
