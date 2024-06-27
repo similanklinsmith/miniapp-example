@@ -1,6 +1,5 @@
 /*
-  This function is defined in the JSBridge Specifications
-  Reference: https://ktbinnovation.atlassian.net/wiki/spaces/MA/pages/3498704972/JSBridge+Specifications#initAuth
+  This function for calling initAuth in the JSBridge
 */
 const initAuth = (
   callback: (authorizationCode: string) => void,
