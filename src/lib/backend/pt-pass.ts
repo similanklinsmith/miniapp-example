@@ -29,6 +29,14 @@ import {
   GetCustomerProfileResponse,
 } from "./type/get-customer-profile.type";
 
+/*
+  The `exchangeTokenService` function exchanges an authorization code for an access token.
+
+  1. It validates the `req` parameter using the `exchangeTokenRequestSchema` schema.
+  2. It sends a POST request to the PT Pass API to exchange the token.
+  3. If the request is successful, it returns the access token and refresh token.
+  4. If an error occurs, it throws a `LibError` with the error details.
+*/
 export const exchangeTokenService = async (
   req: ExchangeTokenRequest
 ): Promise<ExchangeTokenResponse> => {
@@ -87,6 +95,14 @@ export const exchangeTokenService = async (
   }
 };
 
+/*
+  The `getCustomerProfileService` function fetches a customer's profile using an `accessToken`.
+
+  1. It validates the `accessToken` parameter using the `getCustomerProfileRequestSchema` schema.
+  2. It sends a POST request to the PT Pass API to retrieve the profile data.
+  3. If the request is successful, it returns the profile data.
+  4. If an error occurs, it throws a `LibError` with the error details.
+*/
 export const getCustomerProfileService = async (
   accessToken: string
 ): Promise<GetCustomerProfileResponse> => {

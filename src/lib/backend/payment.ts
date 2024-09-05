@@ -32,6 +32,14 @@ import {
 
 import { getTokenConfigSchema, GetTokenResponse } from "./type/get-token.type";
 
+/*
+  The `generateDeeplinkService` function generates a deeplink for a payment transaction.
+
+  1. It validates the `accessToken` and `req` parameters using the `generateDeeplinkConfigSchema` and `paymentTransactionSchema` schemas.
+  2. It sends a POST request to the Payment API to generate the deeplink.
+  3. If the request is successful, it returns the deeplink.
+  4. If an error occurs, it throws a `LibError` with the error details.
+*/
 export const generateDeeplinkService = async (
   accessToken: string,
   req: GenerateDeeplinkRequest
@@ -127,6 +135,14 @@ export const generateDeeplinkService = async (
   }
 };
 
+/*
+  The `inquiryTransactionService` function fetches the payment transaction details using the `txnRefId`.
+
+  1. It validates the `accessToken` and `txnRefId` parameters using the `inquiryTransactionConfigSchema` and `inquiryTransactionRequestSchema` schemas.
+  2. It sends a GET request to the Payment API to retrieve the transaction details.
+  3. If the request is successful, it returns the transaction details.
+  4. If an error occurs, it throws a `LibError` with the error details.
+*/
 export const inquiryTransactionService = async (
   accessToken: string,
   txnRefId: string
@@ -192,6 +208,14 @@ export const inquiryTransactionService = async (
   }
 };
 
+/*
+  The `get2LeggedAccessToken` function fetches a 2-legged access token from the Payment API.
+
+  1. It validates the `getTokenUrl`, `clientId`, and `clientSecret` parameters using the `getTokenConfigSchema` schema.
+  2. It sends a POST request to the Payment API to retrieve the access token.
+  3. If the request is successful, it returns the access token.
+  4. If an error occurs, it throws a `LibError` with the error details.
+*/
 export const get2LeggedAccessToken = async (): Promise<GetTokenResponse> => {
   const config = getTokenConfigSchema.safeParse({
     getTokenUrl: process.env.URL_PAYMENT_GET_TOKEN,
