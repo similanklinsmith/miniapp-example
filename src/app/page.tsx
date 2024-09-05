@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  generateDeeplinkAndOpenPwP,
-  getCustomerProfileWithAccessToken,
-  initAuthAndExchangeToken,
-} from "@/lib/frontend";
+import { getCustomerProfile, initAuth, initPayment } from "@/lib/frontend";
 import Image from "next/image";
 
 export default function Home() {
@@ -17,27 +13,14 @@ export default function Home() {
         height={96}
         alt="Mini App logo"
       />
-
       <div className="flex flex-col justify-center items-center pt-14">
         <h1 className="text-3xl font-semibold">Welcome to Mini App</h1>
       </div>
-
-      {
-        //Example of how to use the functions from the lib/frontend/index.ts
-      }
+      {/*Example of how to use the functions from the lib/frontend/index.ts*/}
+      {/* uncomment the button below to enable exchange token button */}
       {/* <button
         onClick={() =>
-          generateDeeplinkAndOpenPwP((errorCode, errorDescription) => {
-            console.error(errorCode, errorDescription);
-          })
-        }
-      >
-        Payment
-      </button>
-
-      <button
-        onClick={() =>
-          initAuthAndExchangeToken(
+          initAuth(
             (result) => {
               // add logic to handle accessToken here
               console.log(result);
@@ -50,17 +33,27 @@ export default function Home() {
         }
       >
         Exchange Token
-      </button>
-
-      <button
+      </button> */}
+      {/* uncomment the button below to enable get customer profile button */}
+      {/* <button
         onClick={async () => {
-          const result = await getCustomerProfileWithAccessToken(
+          const result = await getCustomerProfile(
             sessionStorage.getItem("accessToken") ?? ""
           );
           console.log(result);
         }}
       >
         Get Customer Profile
+      </button> */}
+      {/* uncomment the button below to enable payment button */}
+      {/* <button
+        onClick={() =>
+          initPayment((errorCode, errorDescription) => {
+            console.error(errorCode, errorDescription);
+          })
+        }
+      >
+        Payment
       </button> */}
     </div>
   );

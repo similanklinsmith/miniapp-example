@@ -6,13 +6,13 @@ import {
   httpGetCustomerProfile,
   httpInquiryTransaction,
 } from "./core/http";
-import { initAuth, openPwP } from "./core/js-bridge";
+import { initAuthJSBridge, openPwPJSBridge } from "./core/js-bridge";
 
-export const initAuthAndExchangeToken = async (
+export const initAuth = async (
   callback?: (result: ExchangeTokenResponseData) => void,
   callbackError?: (errorCode: string, errorDescription: string) => void
 ) => {
-  initAuth(
+  initAuthJSBridge(
     process.env.NEXT_PUBLIC_THREE_LEGGED_CLIENT_ID ?? "",
     process.env.NEXT_PUBLIC_AUTHENTICATION_SCOPE ?? "",
     async (authorizationCode) => {
@@ -33,9 +33,7 @@ export const initAuthAndExchangeToken = async (
   );
 };
 
-export const getCustomerProfileWithAccessToken = async (
-  accessToken: string
-) => {
+export const getCustomerProfile = async (accessToken: string) => {
   try {
     return await httpGetCustomerProfile(accessToken);
   } catch (error) {
@@ -43,7 +41,7 @@ export const getCustomerProfileWithAccessToken = async (
   }
 };
 
-export const generateDeeplinkAndOpenPwP = async (
+export const initPayment = async (
   callbackError: (errorCode: string, errorDescription: string) => void
 ) => {
   try {
@@ -55,13 +53,13 @@ export const generateDeeplinkAndOpenPwP = async (
       amount: 1.5,
     });
 
-    openPwP(result.txnRefId, callbackError);
+    openPwPJSBridge(result.txnRefId, callbackError);
   } catch (error) {
     console.error(error);
   }
 };
 
-export const inquiryTransaction = async (
+export const inquiryPaymentTransaction = async (
   partnerTxnRef: string
 ): Promise<InquiryTransactionResponseData | undefined> => {
   try {

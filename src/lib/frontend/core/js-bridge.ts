@@ -1,4 +1,4 @@
-export const initAuth = (
+export const initAuthJSBridge = (
   clientId: string,
   scope: string,
   callback: (authorizationCode: string) => void,
@@ -27,7 +27,7 @@ export const initAuth = (
   }
 };
 
-export const openPwP = (
+export const openPwPJSBridge = (
   ppoaTnxRefId: string,
   callbackError: (errorCode: string, errorDescription: string) => void
 ) => {
