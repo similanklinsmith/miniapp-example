@@ -82,13 +82,13 @@ This project is divided into two main parts: Frontend and Backend.
 
 ### Starting to Develop
 
-To start developing your Mini App, navigate to the `src/app` folder and begin editing the files within it. It’s recommended to start with the `src/app/page.tsx` file, which serves as the main file for your Mini App's web page. This file already contains examples of using the JS Bridge, enabling you to start developing your Mini App immediately.
+To begin developing your Mini App, go to the `src/app` folder and start modifying the files within it. We suggest starting with the `src/app/page.tsx` file, as it serves as the main page for your Mini App. This file includes examples of basic functions such as authentication and payment, allowing you to kickstart your development right away.
 
 ### Integrate with OAPI Services using Provided Functions
 
-In this project, we have prepared functions for working with OAPI Services. These functions are located in the `src/lib/frontend/index.ts` file and include:
+In this project, we have prepared functions for working with OAPI Services. These functions are located in the `src/lib/frontend/index.ts` file and we create a example usage in `src/app/page.tsx` file.
 
-make sure to configure the environment variables in the .env file before using these functions.
+**make sure to configure the environment variables in the .env file before using these functions.
 
 #### Authentication service
 
@@ -101,6 +101,8 @@ make sure to configure the environment variables in the .env file before using t
 2. `inquiryPaymentTransaction` - Get access token and inquiry the transaction status using the txnRefId
 
 These functions will invoke the APIs within this project, located in the `src/app/api` folder. Examples of API usage are provided and can be modified as needed. Additionally, we provide backend functions for integrating with OAPI services in the `src/lib/backend` folder, You can use these functions with your own services.
+
+----
 
 ### Easy Way to Deploy Your Mini App to Vercel
 
