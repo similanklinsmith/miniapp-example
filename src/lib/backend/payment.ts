@@ -10,7 +10,7 @@
   - TWO_LEGGED_SECRET_KEY
   - ENDPOINT_PAYMENT_GET_TOKEN
   - ENDPOINT_PAYMENT_DEEPLINK
-  - ENDPOINT_PAYMENT_INQUIRY_TRANSACTION_URL
+  - ENDPOINT_PAYMENT_INQUIRY_TRANSACTION
   - PAYMENT_TXN_CONFIG_DEEPLINK_URL
   - PAYMENT_TXN_CONFIG_COMP_CODE
   - MINIAPP_UUID
@@ -158,7 +158,7 @@ export const inquiryTransactionService = async (
 ) => {
   try {
     const config = inquiryTransactionConfigSchema.safeParse({
-      inquiryTransactionUrl: process.env.ENDPOINT_PAYMENT_INQUIRY_TRANSACTION_URL,
+      inquiryTransactionUrl: process.env.ENDPOINT_PAYMENT_INQUIRY_TRANSACTION,
       accessToken: `Bearer ${accessToken}`,
     });
 

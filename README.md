@@ -126,7 +126,7 @@ Setup the environment variables in the `.env` file:
    TWO_LEGGED_SECRET_KEY=<2-legged-client-secret>                          # 2 legged secret key value from OAPI Portal
    ENDPOINT_PAYMENT_GET_TOKEN=https://oapi.service/oauth/token             # OAPI Service endpoint for get 2 legged token        
    ENDPOINT_PAYMENT_DEEPLINK=https://oapi.service/deeplink                 # OAPI Service endpoint for get payment deeplink
-   ENDPOINT_PAYMENT_INQUIRY_TRANSACTION_URL=https://oapi.service/inquiry   # OAPI Service endpoint for inquiry transaction
+   ENDPOINT_PAYMENT_INQUIRY_TRANSACTION=https://oapi.service/inquiry   # OAPI Service endpoint for inquiry transaction
    PAYMENT_TXN_CONFIG_COMP_CODE=00000                                      # company code value from OAPI Portal in merchant configuration
    PAYMENT_TXN_CONFIG_DEEPLINK_URL=https://your.miniapp/result             # deeplink url for return to app after payment completed
 ```
