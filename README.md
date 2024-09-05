@@ -10,7 +10,7 @@ Before running the Mini App Example, make sure you have the following software i
 
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/)
-- Choose one of the following package managers: [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [npm](https://www.npmjs.com/)
 - Text editor or IDE (e.g., [Visual Studio Code](https://code.visualstudio.com/))
 
 Also, ensure your environment is properly configured.
