@@ -8,9 +8,9 @@
   Please set the following environment variables before using the functions:
   - TWO_LEGGED_CLIENT_ID
   - TWO_LEGGED_SECRET_KEY
-  - URL_PAYMENT_GET_TOKEN
-  - URL_PAYMENT_DEEPLINK
-  - URL_PAYMENT_INQUIRY_TRANSACTION_URL
+  - ENDPOINT_PAYMENT_GET_TOKEN
+  - ENDPOINT_PAYMENT_DEEPLINK
+  - ENDPOINT_PAYMENT_INQUIRY_TRANSACTION_URL
   - PAYMENT_TXN_CONFIG_DEEPLINK_URL
   - PAYMENT_TXN_CONFIG_COMP_CODE
   - MINIAPP_UUID
@@ -37,8 +37,17 @@ import { getTokenConfigSchema, GetTokenResponse } from "./type/get-token.type";
 
   1. It validates the `accessToken` and `req` parameters using the `generateDeeplinkConfigSchema` and `paymentTransactionSchema` schemas.
   2. It sends a POST request to the Payment API to generate the deeplink.
-  3. If the request is successful, it returns the deeplink.
+  3. If the request is successful, it returns the result.
   4. If an error occurs, it throws a `LibError` with the error details.
+
+  Here’s a revised version considering it should align with an API specification:
+
+---
+
+For `partnerinfo.deeplink`, the function defaults to using the `PAYMENT_TXN_CONFIG_DEEPLINK_URL`, `MINIAPP_UUID` environment variable as the base URL. 
+According to the API specification, it appends the `partnerTxnRef`, `miniappUUID`, and `destination=miniapp` as query parameters to this URL.
+Example: `https://your.miniapp.com/payment?partnerTxnRef=123&miniappUUID=456&destination=miniapp`
+
 */
 export const generateDeeplinkService = async (
   accessToken: string,
@@ -46,7 +55,7 @@ export const generateDeeplinkService = async (
 ): Promise<GenerateDeeplinkResponse> => {
   try {
     const config = generateDeeplinkConfigSchema.safeParse({
-      generateDeeplinkUrl: process.env.URL_PAYMENT_DEEPLINK,
+      generateDeeplinkUrl: process.env.ENDPOINT_PAYMENT_DEEPLINK,
       accessToken: `Bearer ${accessToken}`,
       miniappUUID: process.env.MINIAPP_UUID,
       deeplinkUrl: process.env.PAYMENT_TXN_CONFIG_DEEPLINK_URL,
@@ -149,7 +158,7 @@ export const inquiryTransactionService = async (
 ) => {
   try {
     const config = inquiryTransactionConfigSchema.safeParse({
-      inquiryTransactionUrl: process.env.URL_PAYMENT_INQUIRY_TRANSACTION_URL,
+      inquiryTransactionUrl: process.env.ENDPOINT_PAYMENT_INQUIRY_TRANSACTION_URL,
       accessToken: `Bearer ${accessToken}`,
     });
 
@@ -218,7 +227,7 @@ export const inquiryTransactionService = async (
 */
 export const get2LeggedAccessToken = async (): Promise<GetTokenResponse> => {
   const config = getTokenConfigSchema.safeParse({
-    getTokenUrl: process.env.URL_PAYMENT_GET_TOKEN,
+    getTokenUrl: process.env.ENDPOINT_PAYMENT_GET_TOKEN,
     clientId: process.env.TWO_LEGGED_CLIENT_ID,
     clientSecret: process.env.TWO_LEGGED_SECRET_KEY,
   });

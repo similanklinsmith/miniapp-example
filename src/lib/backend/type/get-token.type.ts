@@ -3,9 +3,9 @@ import { z } from "zod";
 export const getTokenConfigSchema = z.object({
   getTokenUrl: z
     .string({
-      message: "URL_PAYMENT_GET_TOKEN is not defined in environment variable",
+      message: "ENDPOINT_PAYMENT_GET_TOKEN is not defined in environment variable",
     })
-    .url({ message: "URL_PAYMENT_GET_TOKEN is not a valid URL" }),
+    .url({ message: "ENDPOINT_PAYMENT_GET_TOKEN is not a valid URL" }),
   clientId: z.string({
     message: "TWO_LEGGED_CLIENT_ID is not defined in environment variable",
   }),

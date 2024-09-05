@@ -3,9 +3,9 @@ import { z } from "zod";
 export const generateDeeplinkConfigSchema = z.object({
   generateDeeplinkUrl: z
     .string({
-      message: "URL_PAYMENT_DEEPLINK is not defined in environment variable",
+      message: "ENDPOINT_PAYMENT_DEEPLINK is not defined in environment variable",
     })
-    .url({ message: "URL_PAYMENT_DEEPLINK is not a valid URL" }),
+    .url({ message: "ENDPOINT_PAYMENT_DEEPLINK is not a valid URL" }),
   accessToken: z.string(),
   miniappUUID: z.string().uuid(),
   deeplinkUrl: z.string().url(),

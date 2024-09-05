@@ -10,8 +10,8 @@
   - THREE_LEGGED_SECRET_KEY
   - AUTHENTICATION_REDIRECT_URL
   - AUTHENTICATION_SCOPE
-  - URL_EXCHANGE_TOKEN
-  - URL_GET_CUSTOMER_PROFILE
+  - ENDPOINT_EXCHANGE_TOKEN
+  - ENDPOINT_GET_CUSTOMER_PROFILE
 */
 
 import { randomUUID } from "crypto";
@@ -45,7 +45,7 @@ export const exchangeTokenService = async (
     authenticationScope: process.env.AUTHENTICATION_SCOPE,
     threeLeggedClientId: process.env.THREE_LEGGED_CLIENT_ID,
     threeLeggedSecret: process.env.THREE_LEGGED_SECRET_KEY,
-    exchangeTokenServiceUrl: process.env.URL_EXCHANGE_TOKEN,
+    exchangeTokenServiceUrl: process.env.ENDPOINT_EXCHANGE_TOKEN,
   });
   if (!config.success) {
     throw new LibError(config.error.message, "LB400", config.error);
@@ -66,7 +66,7 @@ export const exchangeTokenService = async (
   form.append("scope", config.data.authenticationScope);
 
   try {
-    const rawResponse = await fetch(`${process.env.URL_EXCHANGE_TOKEN}`, {
+    const rawResponse = await fetch(`${process.env.ENDPOINT_EXCHANGE_TOKEN}`, {
       method: "POST",
       headers: {
         "content-type": "application/x-www-form-urlencoded",
@@ -107,7 +107,7 @@ export const getCustomerProfileService = async (
   accessToken: string
 ): Promise<GetCustomerProfileResponse> => {
   const config = getCustomerProfileConfigSchema.safeParse({
-    getCustomerProfileUrl: process.env.URL_GET_CUSTOMER_PROFILE,
+    getCustomerProfileUrl: process.env.ENDPOINT_GET_CUSTOMER_PROFILE,
   });
 
   if (!config.success) {

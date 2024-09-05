@@ -18,9 +18,9 @@ export const exchangeTokenConfigSchema = z.object({
   }),
   exchangeTokenServiceUrl: z
     .string({
-      message: "URL_EXCHANGE_TOKEN is not defined in environment variable",
+      message: "ENDPOINT_EXCHANGE_TOKEN is not defined in environment variable",
     })
-    .url({ message: "URL_EXCHANGE_TOKEN is not a valid URL" }),
+    .url({ message: "ENDPOINT_EXCHANGE_TOKEN is not a valid URL" }),
 });
 
 export const exchangeTokenRequestSchema = z.object({

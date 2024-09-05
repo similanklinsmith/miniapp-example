@@ -10,9 +10,9 @@ export const getCustomerProfileConfigSchema = z.object({
   getCustomerProfileUrl: z
     .string({
       message:
-        "URL_GET_CUSTOMER_PROFILE is not defined in environment variable",
+        "ENDPOINT_GET_CUSTOMER_PROFILE is not defined in environment variable",
     })
-    .url({ message: "URL_GET_CUSTOMER_PROFILE is not a valid URL" }),
+    .url({ message: "ENDPOINT_GET_CUSTOMER_PROFILE is not a valid URL" }),
 });
 
 export type GetCustomerProfileConfig = z.infer<
