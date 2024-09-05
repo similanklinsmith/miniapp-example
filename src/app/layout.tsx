@@ -1,7 +1,8 @@
-import JSBridgeProvider from "@/jsBridge/JSBridgeProvider";
+import JSBridgeProvider from "@/lib/frontend/JSBridgeProvider";
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
+import VConsoleWrapper from "@/components/VConsoleWrapper";
 
 const IBMPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -33,7 +34,7 @@ export default function RootLayout({
           https://github.com/Tencent/vConsole
 
           To use VConsole, uncomment the following line: */}
-      {/* <VConsoleWrapper /> */}
+      <VConsoleWrapper />
     </html>
   );
 }

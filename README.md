@@ -2,18 +2,22 @@
 
 ## Getting Started
 
-This project is a Mini App Example project based on [Next.js](https://nextjs.org/) and styled with [Tailwind CSS](https://tailwindcss.com/).
+The Mini App Example project is a sample project built using [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/) to create a web interface.
 
 ### Prerequisites
 
 Before running the Mini App Example, make sure you have the following software installed:
 
+- [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/)
-- Choose one of the following package managers: [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/), [pnpm](https://pnpm.io/), or [bun](https://bun.sh/)
+- Choose one of the following package managers: [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- Text editor or IDE (e.g., [Visual Studio Code](https://code.visualstudio.com/))
+
+Also, ensure your environment is properly configured.
 
 ### Setting Up the Development Environment
 
-1. **Clone the example Repository**
+1. **Clone the Example Repository**
 
    ```bash
    git clone https://github.com/paotang-miniapp/miniapp-example
@@ -26,151 +30,79 @@ Before running the Mini App Example, make sure you have the following software i
    npm install
    # or
    yarn
-   # or
-   pnpm install
-   # or
-   bun install
    ```
 
-3. **Run the Mini App Example**
+3. **Configure environment variables**
+  
+   Create a .env file in the root directory of the project and add the following environment variables as shown in .env.example:
+
+   ```bash
+    NEXT_PUBLIC_APP_ENV=local
+    NEXT_PUBLIC_THREE_LEGGED_CLIENT_ID=     # 3 legged client id value from oapi portal
+    NEXT_PUBLIC_AUTHENTICATION_SCOPE=       # authentication scope from oapi portal sparated by '+', example: openid+offline
+
+    MINIAPP_UUID=                           # miniapp uuid value from miniapp portal
+    TWO_LEGGED_CLIENT_ID=                   # 2 legged client id value from oapi portal
+    TWO_LEGGED_SECRET_KEY=                  # 2 legged secret key value from oapi portal
+    THREE_LEGGED_CLIENT_ID=                 # 3 legged client id value from oapi portal
+    THREE_LEGGED_SECRET_KEY=                # 3 legged secret key value from oapi portal
+    AUTHENTICATION_SCOPE=                   # authentication scope from oapi portal sparated by '+', example: openid+offline
+    AUTHENTICATION_REDIRECT_URL=            # redirect url. it must be the same as the authentication redirect url in oapi portal and default destination url in miniapp portal
+
+    URL_EXCHANGE_TOKEN=                     # exchange token full url
+    URL_GET_CUSTOMER_PROFILE=               # get customer profile full url
+    URL_PAYMENT_GET_TOKEN=                  # payment get token full url        
+    URL_PAYMENT_DEEPLINK=                   # payment deeplink full url
+    URL_PAYMENT_INQUIRY_TRANSACTION_URL=    # payment inquiry transaction full url
+
+    PAYMENT_TXN_CONFIG_COMP_CODE=           # company code value from oapi portal in merchant configuration
+    PAYMENT_TXN_CONFIG_DEEPLINK_URL=        # deeplink url for return to app after payment completed
+   ```
+
+4. **Run the Mini App Example**
 
    ```bash
    npm run dev
    # or
    yarn dev
-   # or
-   pnpm dev
-   # or
-   bun dev
    ```
 
-4. **Open Your Browser**
+5. **View Your Application**
 
-   Open [http://localhost:3000](http://localhost:3000) to see the result.
+   Visit [http://localhost:3000](http://localhost:3000) to view your application.
 
-### Using Ngrok with Your Mini App
+   ![login](./instruction/screen/1.png)
 
-During development, if you need to debug your application within the Mini App webview, you can use Ngrok to make your local server accessible over the internet. This enables real-time testing and debugging of your Mini App.
+----
 
-#### Step-by-Step Guide
+### Project Structure
 
-1. **Run the Mini App Example**
+This project is divided into two main parts: Frontend and Backend.
 
-   Start the development server:
+1. The Frontend is located in the `src/app` folder (excluding `src/app/api`).
+2. The Backend is located in the `src/app/api` folder, which includes examples of API usage.
 
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   # or
-   bun dev
-   ```
+### Starting to Develop
 
-2. **Expose Your Local Server with Ngrok**
+To start developing your Mini App, navigate to the `src/app` folder and begin editing the files within it. It’s recommended to start with the `src/app/page.tsx` file, which serves as the main file for your Mini App's web page. This file already contains examples of using the JS Bridge, enabling you to start developing your Mini App immediately.
 
-   Open a new terminal window and run Ngrok to expose your local server:
+### Integrate with OAPI Services using Provided Functions
 
-   ```bash
-   ngrok http 3000
-   ```
+In this project, we have prepared functions for working with OAPI Services. These functions are located in the `src/lib/frontend/index.ts` file and include:
 
-   Ngrok will provide you with a public URL that tunnels to your local server. This URL can be used to access your Mini App from any device.
+make sure to configure the environment variables in the .env file before using these functions.
 
-   > **Note:** If you haven't installed Ngrok yet, please refer to the [Ngrok documentation](https://ngrok.com/docs) for installation instructions.
+#### Authentication service
 
-3. **Update Your Mini App Configuration**
+1. `initAuthAndExchangeToken` - Calls jsbridge `initAuth` with clientId and scope values from environment variables, and sends an API request to OAPI Services to exchange the token.
+2. `getCustomerProfileWithAccessToken` - Retrieves the customer profile using the access token obtained from the token exchange with PT Pass.
 
-   - **Mini App Redirect URL:** Update the Mini App Redirect URL in the Mini App Portal with the public URL provided by Ngrok.
-   - **Paotang Pass Callback URL:** Include the Ngrok URL as the callback URL in your Paotang Pass clientId configuration.
+#### Payment service
 
-By following these steps, you can effectively test your Mini App in a real-time environment, ensuring that it works as expected when deployed.
+1. `generateDeeplinkAndOpenPwP` - Get access token and initialize payment transaction and opens the payment flow for completing the transaction.
+2. `inquiryTransaction` - Get access token and inquiry the transaction status using the txnRefId
 
-### Mini App JSBridge
-
-#### Setting Up JSBridge
-
-Before using JSBridge functions, you need to set up JSBridge in your Mini App project with a few essential steps.
-
-1. **Declare Window Type (***TypeScript Only***)**
-
-   In your Mini App project, declare the `window` type in the `index.d.ts` file:
-
-   ```typescript
-   interface Window {
-      JSBridge: any;
-      webkit: any;
-      bridge: any;
-   }
-   ```
-
-2. **Initialize Bridge Object**
-
-   Create a global `bridge` object in your Mini App project to store callback functions for JSBridge operations:
-
-   ```typescript
-   window.bridge = {
-      initAuthCallback: null,
-      initAuthCallbackError: null,
-      // Add more callback functions as needed
-   };
-   ```
-
-   **Note:** Ensure that `window.bridge` is initialized before calling any JSBridge functions.
-
-#### Using JSBridge Functions
-
-Here is an example function for calling initAuth in the JSBridge. It sets up callback functions for success and error handling, then triggers the authentication process via JSBridge for Android or webkit for iOS.
-
-```typescript
-const initAuth = (
-  callback: (authorizationCode: string) => void,
-  callbackError: (errorCode: string, errorDescription: string) => void
-) => {
-  if (window.JSBridge) {
-    // For Android
-    window.bridge.initAuthCallback = callback;
-    window.bridge.initAuthCallbackError = callbackError;
-    window.JSBridge.initAuth?.();
-  } else if (window.webkit) {
-    // For iOS
-    window.bridge.initAuthCallback = callback;
-    window.bridge.initAuthCallbackError = callbackError;
-    const message = { name: "initAuth" };
-    window.webkit.messageHandlers.observer.postMessage(message);
-  }
-};
-
-export default initAuth;
-```
-
-Usage:
-
-```typescript
-initAuth(
-  // Callback function for success
-  (authorizationCode: string) => {
-    /*
-      Logic to handle the authorization code received from the native app
-      after successful authentication
-    */
-  },
-  // Callback function for error
-  (errorCode, errorDescription) => {
-    /*
-      Logic to handle the error received from the native app 
-      after failed authentication
-    */
-  }
-);
-```
-
-In this example project, we demonstrate how to use `initAuth` for user authentication before accessing the app. We have created an `/init` page to handle the various logic for initializing authentication before entering the main app page.
-
-Therefore, we need to set the Mini App Redirect URL to `https://<app-domain>/init` so that the Mini App webview opens this page first (which you might implement as a loading screen or splash screen).
-
-Once the `initAuth` process is successful, the system will redirect the user to the main page of the application with the `authorizationCode` received from `initAuth`.
+These functions will invoke the APIs within this project, located in the `src/app/api` folder. Examples of API usage are provided and can be modified as needed. Additionally, we provide backend functions for integrating with OAPI services in the `src/lib/backend` folder, You can use these functions with your own services.
 
 ### Easy Way to Deploy Your Mini App to Vercel
 
@@ -195,6 +127,7 @@ Deploying your Mini App to Vercel is simple and quick. Just follow these steps:
 
 4. **Configure Your Project**
    - Verify and configure your project settings.
+   - Add the environment variables from your `.env` file. In "Environment Variables", click on "Add" to add each variable.
    - Ensure all the settings are correct, then click "Deploy" to initiate the deployment.
 
    ![config](./instruction/deploy-to-vercel/4.png)
