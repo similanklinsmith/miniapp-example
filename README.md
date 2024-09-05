@@ -20,7 +20,9 @@ Also, ensure your environment is properly configured.
 1. **Prepare Repository**
 
    1.1. Fork the repository to your GitHub account.
+
    1.2. Clone the repository to your local machine.
+
    1.3. Change the directory to the project folder.
 
 2. **Install Dependencies**
@@ -99,15 +101,15 @@ In this project, we have prepared functions for working with OAPI Services. Thes
 Setup the environment variables in the `.env` file:
 
 ```bash
-   NEXT_PUBLIC_THREE_LEGGED_CLIENT_ID=<3-legged-client-id>   # 3 legged client id value from OAPI Portal. Use for initAuth via jsbridge. it must be the same as the `THREE_LEGGED_CLIENT_ID` in backend config
-   NEXT_PUBLIC_AUTHENTICATION_SCOPE=openid+offline           # authentication scope value from OAPI Portal. Use for initAuth via jsbridge. it must be the same as the `AUTHENTICATION_SCOPE` in backend config
+   NEXT_PUBLIC_THREE_LEGGED_CLIENT_ID=<3-legged-client-id>        # 3 legged client id value from OAPI Portal. Use for initAuth via jsbridge. it must be the same as the `THREE_LEGGED_CLIENT_ID` in backend config
+   NEXT_PUBLIC_AUTHENTICATION_SCOPE=openid+offline                # authentication scope value from OAPI Portal. Use for initAuth via jsbridge. it must be the same as the `AUTHENTICATION_SCOPE` in backend config
 
-   THREE_LEGGED_CLIENT_ID=<3-legged-client-id>               # 3 legged client id value from OAPI Portal
-   THREE_LEGGED_SECRET_KEY=<3-legged-client-secret>          # 3 legged secret key value from OAPI Portal
+   THREE_LEGGED_CLIENT_ID=<3-legged-client-id>                    # 3 legged client id value from OAPI Portal
+   THREE_LEGGED_SECRET_KEY=<3-legged-client-secret>               # 3 legged secret key value from OAPI Portal
    ENDPOINT_EXCHANGE_TOKEN=https://oapi.service/exchange          # OAPI Service endpoint for exchange token
    ENDPOINT_GET_CUSTOMER_PROFILE=https://oapi.service/customer    # OAPI Service endpoint for get customer profile
-   AUTHENTICATION_SCOPE=openid+offline                       # authentication scope from OAPI Portal sparated by '+', example: openid+offline
-   AUTHENTICATION_REDIRECT_URL=https://your.miniapp          # redirect url. it must be the same as the authentication redirect url in OAPI Portal and default destination url in miniapp Portal
+   AUTHENTICATION_SCOPE=openid+offline                            # authentication scope from OAPI Portal sparated by '+', example: openid+offline
+   AUTHENTICATION_REDIRECT_URL=https://your.miniapp               # redirect url. it must be the same as the authentication redirect url in OAPI Portal and default destination url in miniapp Portal
 ```
 
 1. `initAuth` - Calls jsbridge `initAuth` with clientId and scope values from environment variables, and sends an API request to OAPI Services to exchange the token.
@@ -120,13 +122,13 @@ Setup the environment variables in the `.env` file:
 Setup the environment variables in the `.env` file:
 
 ```bash
-   TWO_LEGGED_CLIENT_ID=<2-legged-client-id>                          # 2 legged client id value from OAPI Portal
-   TWO_LEGGED_SECRET_KEY=<2-legged-client-secret>                     # 2 legged secret key value from OAPI Portal
+   TWO_LEGGED_CLIENT_ID=<2-legged-client-id>                               # 2 legged client id value from OAPI Portal
+   TWO_LEGGED_SECRET_KEY=<2-legged-client-secret>                          # 2 legged secret key value from OAPI Portal
    ENDPOINT_PAYMENT_GET_TOKEN=https://oapi.service/oauth/token             # OAPI Service endpoint for get 2 legged token        
    ENDPOINT_PAYMENT_DEEPLINK=https://oapi.service/deeplink                 # OAPI Service endpoint for get payment deeplink
    ENDPOINT_PAYMENT_INQUIRY_TRANSACTION_URL=https://oapi.service/inquiry   # OAPI Service endpoint for inquiry transaction
-   PAYMENT_TXN_CONFIG_COMP_CODE=00000                                 # company code value from OAPI Portal in merchant configuration
-   PAYMENT_TXN_CONFIG_DEEPLINK_URL=https://your.miniapp/result        # deeplink url for return to app after payment completed
+   PAYMENT_TXN_CONFIG_COMP_CODE=00000                                      # company code value from OAPI Portal in merchant configuration
+   PAYMENT_TXN_CONFIG_DEEPLINK_URL=https://your.miniapp/result             # deeplink url for return to app after payment completed
 ```
 
 ##### Payment service functions
