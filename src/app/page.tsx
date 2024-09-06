@@ -46,7 +46,7 @@ export default function Home() {
         Get Customer Profile
       </button> */}
       {/* uncomment the button below to enable payment button */}
-      {/* <button
+      <button
         onClick={() =>
           initPayment((errorCode, errorDescription) => {
             console.error(errorCode, errorDescription);
@@ -54,7 +54,7 @@ export default function Home() {
         }
       >
         Payment
-      </button> */}
+      </button>
     </div>
   );
 }
