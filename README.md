@@ -77,6 +77,8 @@ Also, ensure your environment is properly configured.
 
    By following these steps, you can easily deploy your Mini App to Vercel and make it accessible to users. For more detailed information on deploying projects to Vercel, visit the [Vercel Documentation](https://vercel.com/docs).
 
+After you have completed the steps above,  proceed to the next step at [Step 3: Register Your Application to the MiniApp Portal](https://ktbinnovation.atlassian.net/wiki/spaces/MA/pages/3832611660/1st+Mini+App+Hello+World#Step-3%3A-Register-Your-Application-to-the-MiniApp-Portal)
+
 ----
 
 ### About Project Structure
@@ -138,7 +140,3 @@ Setup the environment variables in the `.env` file:
 2. `inquiryPaymentTransaction` - Get access token and inquiry the transaction status using the txnRefId
 
 These functions will invoke the APIs within this project, located in the `src/app/api` folder. Examples of API usage are provided and can be modified as needed. Additionally, we provide backend functions for integrating with OAPI services in the `src/lib/backend` folder, You can use these functions with your own services.
-
-----
-
-After you have completed the steps above,  proceed to the next step at [Step 3: Register Your Application to the MiniApp Portal](https://ktbinnovation.atlassian.net/wiki/spaces/MA/pages/3832611660/1st+Mini+App+Hello+World#Step-3%3A-Register-Your-Application-to-the-MiniApp-Portal)
