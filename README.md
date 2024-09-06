@@ -122,6 +122,7 @@ Setup the environment variables in the `.env` file:
 Setup the environment variables in the `.env` file:
 
 ```bash
+   MINIAPP_UUID=<uuid>                                                     # App ID value from the MiniApp Portal in the Application Details section.
    TWO_LEGGED_CLIENT_ID=<2-legged-client-id>                               # 2 legged client id value from OAPI Portal
    TWO_LEGGED_SECRET_KEY=<2-legged-client-secret>                          # 2 legged secret key value from OAPI Portal
    ENDPOINT_PAYMENT_GET_TOKEN=https://oapi.service/oauth/token             # OAPI Service endpoint for get 2 legged token        
